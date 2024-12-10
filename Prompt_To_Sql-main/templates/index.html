@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to SQL Generator</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0056b3;
+        }
+        input[type="file"], input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        input[type="text"] {
+            border: 1px solid #bbb;
+        }
+        input[type="file"]:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #0056b3;
+            box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+        }
+        button {
+            background-color: #0056b3;
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        #schema, #queryResult {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            font-size: 0.9rem;
+            background-color: #ffffff;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #555;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            form, #schema, #queryResult {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Text to SQL Generator</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="db_file">Upload Database File:</label>
+        <input type="file" name="db_file" id="db_file" required>
+        <button type="submit">Upload</button>
+    </form>
+    <div id="schema">Database schema will be displayed here.</div>
+    <form id="queryForm">
+        <input type="text" name="question" placeholder="Enter your question" required>
+        <button type="submit">Generate Query</button>
+    </form>
+    <div id="queryResult">Generated SQL query will appear here.</div>
+</body>
+</html>
