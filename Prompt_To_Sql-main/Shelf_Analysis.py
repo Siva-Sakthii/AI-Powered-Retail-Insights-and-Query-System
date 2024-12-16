@@ -2,6 +2,8 @@ import streamlit as st
 import torch
 from PIL import Image
 import os
+import requests
+
 MODEL_URL = 'https://your-cloud-storage-link/best.pt'  # Replace with your hosted link
 MODEL_PATH = 'models/best.pt'
 
