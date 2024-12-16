@@ -21,4 +21,5 @@ uvicorn
 tensorflow
 gunicorn
 gitpython
-
+textblob
+transformers
