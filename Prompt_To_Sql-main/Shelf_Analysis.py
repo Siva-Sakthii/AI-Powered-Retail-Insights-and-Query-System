@@ -2,23 +2,9 @@ import streamlit as st
 import torch
 from PIL import Image
 import os
-import requests
-
-MODEL_URL = 'https://your-cloud-storage-link/best.pt'  # Replace with your hosted link
-MODEL_PATH = 'models/best.pt'
-
-os.makedirs('models', exist_ok=True)
-
-if not os.path.exists(MODEL_PATH):
-    print(f"Downloading model from {MODEL_URL}...")
-    response = requests.get(MODEL_URL, stream=True)
-    with open(MODEL_PATH, 'wb') as f:
-        for chunk in response.iter_content(chunk_size=8192):  # Download in chunks
-            f.write(chunk)
-    print("Model downloaded successfully!")
 
 # Load your vehicle detection model
-model = torch.hub.load('ultralytics/yolov5', 'custom', path=MODEL_PATH)  # Adjust the path to your model
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/best.pt')  # Adjust the path to your model
 
 # Ensure folders exist
 UPLOAD_FOLDER = 'static/uploads'
