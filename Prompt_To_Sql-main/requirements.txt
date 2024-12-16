@@ -25,3 +25,4 @@ textblob
 transformers
 openpyxl
 opencv-python-headless
+urllib
