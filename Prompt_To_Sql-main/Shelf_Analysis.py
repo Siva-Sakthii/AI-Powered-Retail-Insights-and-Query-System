@@ -17,7 +17,7 @@ if not os.path.exists(MODEL_PATH):
     print("Model downloaded successfully!")
 
 # Load your vehicle detection model
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/best.pt')  # Adjust the path to your model
+model = torch.hub.load('ultralytics/yolov5', 'custom', path=MODEL_PATH)  # Adjust the path to your model
 
 # Ensure folders exist
 UPLOAD_FOLDER = 'static/uploads'
