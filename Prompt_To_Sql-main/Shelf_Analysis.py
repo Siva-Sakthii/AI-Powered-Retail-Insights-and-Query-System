@@ -2,18 +2,17 @@ import streamlit as st
 import torch
 from PIL import Image
 import os
-import urllib.request
-
+MODEL_URL = 'https://your-cloud-storage-link/best.pt'  # Replace with your hosted link
 MODEL_PATH = 'models/best.pt'
-MODEL_URL = 'https://drive.google.com/file/d/1bBRpensN2Yhybdi2sQPbvnQbmzfq-Ifc/view?usp=drive_link'  # Replace with your hosted link
 
-# Ensure the directory exists
 os.makedirs('models', exist_ok=True)
 
-# Download the model if it doesn't exist
 if not os.path.exists(MODEL_PATH):
     print(f"Downloading model from {MODEL_URL}...")
-    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+    response = requests.get(MODEL_URL, stream=True)
+    with open(MODEL_PATH, 'wb') as f:
+        for chunk in response.iter_content(chunk_size=8192):  # Download in chunks
+            f.write(chunk)
     print("Model downloaded successfully!")
 
 # Load your vehicle detection model
