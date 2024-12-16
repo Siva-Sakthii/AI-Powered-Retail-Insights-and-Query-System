@@ -24,3 +24,4 @@ gitpython
 textblob
 transformers
 openpyxl
+opencv-python-headless
